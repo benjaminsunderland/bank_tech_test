@@ -1,16 +1,27 @@
 class BankAccount
 
-  attr_accessor :balance
-  attr_reader :deposit_history
+  attr_accessor :balance, :account_history
+
 
   def initialize(balance = 0)
     @balance = balance
-    @deposit_history = []
+    @account_history = []
   end
 
   def deposit(amount)
-    new_balance = @balance += amount
-    @deposit_history << new_balance
+    @balance += amount
+    store_history(balance, amount)
+  end
+
+  def withdrawl(amount)
+    @balance -= amount
+    store_history(balance, amount)
+  end
+
+  def store_history(balance, amount)
+    time = Time.new
+    @account_history << {balance: @balance, amount: amount, time: time}
+
   end
 
 end
