@@ -1,25 +1,29 @@
-class BankAccount
-  attr_accessor :balance, :account_history
+require_relative 'statement'
 
-  def initialize(balance = 0)
-    @balance = balance
-    @account_history = []
+class BankAccount
+  attr_accessor :balance, :statement
+
+  def initialize(statement = Statement.new)
+    @balance = 0
+    @statement = statement
   end
 
   def deposit(amount)
-    @balance += amount
-    store_history(balance, amount)
+   @balance += amount
+   store_history(balance, amount, :deposit)
   end
 
   def withdrawl(amount)
-    raise 'Insufficient Funds' if @balance < 0
-    @balance -= amount
-    store_history(balance, amount)
+   raise 'Insufficient Funds' if @balance < 0
+   @balance -= amount
+   store_history(balance, amount, :withdrawl)
   end
 
-  def store_history(balance, amount)
-    time = Time.new
-    calender_time = time.strftime('%F')
-    @account_history << { calender_time: calender_time, amount: amount.to_f, balance: @balance.to_f }
+  def store_history(balance, amount, type)
+   time = Time.new
+   calender_time = time.strftime('%F')
+   statement.account_history << { calender_time: calender_time, type: type, amount: amount.to_f, balance: @balance.to_f }
   end
+
+
 end
