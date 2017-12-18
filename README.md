@@ -43,7 +43,7 @@ To Run - In the project directory type these commands:
 To Withdraw:
 
 ```sh
-bank.deposit(amount)
+bank.withdrawl(amount)
 ```
 
 To Deposit:
