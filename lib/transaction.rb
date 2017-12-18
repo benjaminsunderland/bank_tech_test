@@ -1,23 +1,20 @@
 class Transaction
 
-  def initialize
+  attr_accessor :balance, :statement
+
+  def initialize(balance = 0)
+  @balance = balance
   end
 
   def deposit(amount)
+   raise "You have to enter an amount greater than 0" if amount <= 0
    @balance += amount
-   store_history(balance, amount)
+   @statement.store_history(balance, amount, :deposit)
   end
 
   def withdrawl(amount)
    raise 'Insufficient Funds' if @balance < 0
    @balance -= amount
-   store_history(balance, amount)
+   @statement.store_history(balance, amount, :withdrawl)
   end
-
-  def store_history(balance, amount)
-   time = Time.new
-   calender_time = time.strftime('%F')
-   statement.account_history << { calender_time: calender_time, amount: amount.to_f, balance: @balance.to_f }
-  end
-
 end

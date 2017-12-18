@@ -14,7 +14,7 @@ describe BankAccount do
     it 'it can store a history of deposits' do
       new_time = Timecop.freeze(Time.local(2012, 1, 10)).strftime('%F')
       bankaccount.deposit(1000)
-      expect(bankaccount.account_history.first).to eq(balance: 1000, amount: 1000, calender_time: new_time)
+      expect(bankaccount.statement.account_history.first).to eq(balance: 1000.0, amount: 1000.0, type: :deposit, calender_time: new_time)
     end
 
     it 'increases the balance the amount given' do
@@ -28,7 +28,7 @@ describe BankAccount do
       new_time = Timecop.freeze(Time.local(2012, 1, 13)).strftime('%F')
       bankaccount.deposit(1000)
       bankaccount.withdrawl(500)
-      expect(bankaccount.account_history[1]).to eq(balance: 500, amount: 500, calender_time: new_time)
+      expect(bankaccount.statement.account_history[1]).to eq(balance: 500, amount: 500, type: :withdrawl, calender_time: new_time)
     end
 
     it 'decreases the balance the amount given' do
