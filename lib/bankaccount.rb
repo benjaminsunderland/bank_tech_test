@@ -15,12 +15,10 @@ class BankAccount
 
   def deposit(amount)
     @statement.store_history(@transaction.balance, amount, :deposit)
-    # @transaction.deposit(amount)
   end
 
   def withdrawl(amount)
     @statement.store_history(@transaction.balance, amount, :withdrawl)
-    # @transaction.withdrawl(amount)
   end
 
   def print_statement
