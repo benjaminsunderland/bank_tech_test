@@ -1,7 +1,7 @@
 require_relative 'bankaccount.rb'
 
 class Statement
-  attr_accessor :account_history
+  attr_accessor :account_history, :store_history
 
   def initialize
     @account_history = []

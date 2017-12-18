@@ -2,21 +2,25 @@ require_relative 'statement'
 require_relative 'transaction'
 
 class BankAccount
-  attr_accessor :balance, :statement
+  attr_accessor :transaction, :statement, :test
 
   def initialize(transaction = Transaction.new, statement = Statement.new)
     @transaction = transaction
     @statement = statement
   end
 
+  def test
+    @statement
+  end
+
   def deposit(amount)
-    @transaction.deposit(amount)
-    @statement.store_history(balance, amount, :deposit)
+    @statement.store_history(@transaction.balance, amount, :deposit)
+    # @transaction.deposit(amount)
   end
 
   def withdrawl(amount)
-    @transaction.withdrawl(amount)
-    @statement.store_history(balance, amount, :deposit)
+    @statement.store_history(@transaction.balance, amount, :withdrawl)
+    # @transaction.withdrawl(amount)
   end
 
   def print_statement
