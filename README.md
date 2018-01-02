@@ -36,20 +36,14 @@ To Run - In the project directory type these commands:
 
 ```sh
 - irb to launch the interactive ruby shell
-- require the file called 'bankaccount' by typing 'require (the directory)'
-- Type: bank = BankAccount.new
+- require the file called 'account' by typing 'require (the directory)'
+- Type: account = BankAccount.new
 ```
 
-To Withdraw:
+To play - In the project directory type these commands:
 
 ```sh
-bank.withdrawl(amount)
-```
 
-To Deposit:
-
-```sh
-bank.deposit(amount)
 ```
 
 ## Technologies

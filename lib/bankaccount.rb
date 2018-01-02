@@ -2,7 +2,7 @@ require_relative 'statement'
 require_relative 'transaction'
 
 class BankAccount
-  attr_accessor :transaction, :statement, :test
+  attr_accessor :transaction, :statement
 
   def initialize(transaction = Transaction.new, statement = Statement.new)
     @transaction = transaction
@@ -18,7 +18,6 @@ class BankAccount
   end
 
   def print_statement
-    puts @statement.header
     puts @statement.print_format
   end
 

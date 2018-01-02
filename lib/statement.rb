@@ -16,11 +16,11 @@ class Statement
   end
 
   def show_deposit
-    puts "#{value[:calender_time]} ||  #{value[:amount]} || || #{value[:balance]}"
+    puts "#{@account_history[0][:calender_time]} ||  #{@account_history[0][:amount]} || || #{@account_history[0][:balance]}"
   end
 
   def show_withdrawal
-    puts "#{value[:calender_time]} || ||  #{value[:amount]} || #{value[:balance]}"
+    puts "#{@account_history[0][:calender_time]} || ||  #{@account_history[0][:amount]} || #{@account_history[0][:balance]}"
   end
 
   def print_format
