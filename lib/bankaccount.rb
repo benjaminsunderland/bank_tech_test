@@ -9,10 +9,6 @@ class BankAccount
     @statement = statement
   end
 
-  def test
-    @statement
-  end
-
   def deposit(amount)
     @statement.store_history(@transaction.balance, amount, :deposit)
   end
@@ -23,7 +19,7 @@ class BankAccount
 
   def print_statement
     puts @statement.header
-    puts @statement.print_statement
+    puts @statement.print_format
   end
 
 end
